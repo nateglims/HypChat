@@ -140,6 +140,13 @@ class Room(RestObject):
         data = {'message': message, 'parentMessageId': parent_message_id}
         self._requests.post(self.url + '/reply', data=data)
 
+    def link(self, message, link):
+        """
+        Send a link to a room.
+        """
+        data = {'message': message, 'link': link}
+        self._requests.post(self.url + '/link', data=data)
+
     def message(self, message):
         """
         Allows a user to send a message to a room.
